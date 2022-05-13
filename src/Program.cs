@@ -11,8 +11,8 @@ namespace HelloWorld
         static Program()
         {
             Raylib.SetConfigFlags(ConfigFlags.FLAG_WINDOW_TRANSPARENT);
-            //Raylib.SetConfigFlags(ConfigFlags.FLAG_WINDOW_UNDECORATED); // currently making the whole monitor go black, not sure why (Win11 beta)
-            //Raylib.SetConfigFlags(ConfigFlags.FLAG_WINDOW_TOPMOST);
+            Raylib.SetConfigFlags(ConfigFlags.FLAG_WINDOW_UNDECORATED); // currently making the whole monitor go black, not sure why (Win11 beta)
+            Raylib.SetConfigFlags(ConfigFlags.FLAG_WINDOW_TOPMOST);
         }
         public static void Main()
         {
@@ -29,9 +29,11 @@ namespace HelloWorld
             Vector2 touchPosition = new Vector2(0.0f, 0.0f);
 
             // initial raylib stuff
-            Raylib.InitWindow(Raylib.GetScreenWidth(), Raylib.GetScreenHeight(), "Touch GamePad");
-            Raylib.SetWindowPosition(0,60);
+            Raylib.InitWindow(200,200, "Touch GamePad");
+            Raylib.SetWindowPosition(0,0);
             Raylib.SetTargetFPS(60);
+            //System.Threading.Thread.Sleep(1000);
+            Raylib.SetWindowSize(Raylib.GetMonitorWidth(0), Raylib.GetMonitorHeight(0));
 
             // button textures
             Texture2D btn_a = Raylib.LoadTexture(Directory.GetCurrentDirectory() + "\\Resources\\a_btn.png"); // make sure Resources/*.png files are marked as "Copy Always"
